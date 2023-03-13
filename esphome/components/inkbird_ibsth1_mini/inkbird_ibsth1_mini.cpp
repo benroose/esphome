@@ -55,10 +55,11 @@ bool InkbirdIbstH1Mini::parse_device(const esp32_ble_tracker::ESPBTDevice &devic
     ESP_LOGVV(TAG, "parse_device(): manufacturer data element length is expected to be of length 7");
     return false;
   }
-  if ((mnf_data.data[6] != 8) && (mnf_data.data[6] != 6)) {
-    ESP_LOGVV(TAG, "parse_device(): unexpected data");
-    return false;
-  }
+// REMOVING NEXT 4 LINES FOR IBS-TH2 FIX AS PER https://github.com/esphome/feature-requests/issues/1586
+//  if ((mnf_data.data[6] != 8) && (mnf_data.data[6] != 6)) {
+//    ESP_LOGVV(TAG, "parse_device(): unexpected data");
+//    return false;
+//  }
 
   // sensor output encoding
   // data[5] is a battery level
